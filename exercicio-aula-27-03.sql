@@ -38,6 +38,9 @@ FROM aluno
 WHERE email LIKE '%@gmail.com'
 
 -- 7. 7. Liste o nome do aluno, título do curso e data da matrícula.
+SELECT a.NOME, c.TITULO, m.data_matricula
+from aluno a
+JOIN curso c ON 
 -- 8. 8. Liste os alunos e as notas que receberam em cada curso.
 -- 9. 9. Mostre os cursos que o aluno chamado "João Silva" está matriculado.
 -- 10. 10. Liste os títulos dos cursos que possuem mais de um aluno matriculado.
