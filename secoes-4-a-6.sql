@@ -57,4 +57,16 @@ SELECT nome, NVL(cidade, 'Sem cidade') AS cidade_ajustada FROM contas;
 FROM contas;
 
 --PARTE 3
+-- 16.Exiba o nome de cada cliente, o número da conta e o saldo correspondente.
+SELECT c.nome, ct.numero_conta, ct.saldo FROM cliente c JOIN conta ct ON c.id_cliente = ct.id_cliente
 
+-- 17. Liste os nomes dos clientes e os nomes das agências onde mantêm conta.
+SELECT c.nome, a.agencia FROM cliente c 
+JOIN conta ct ON c.id_cliente = ct.id_cliente
+JOIN agencia a ON ct.id_agencia = a.id_agencia
+
+--18. Mostre todas as agências, mesmo aquelas que não possuem clientes vinculados (junção externa esquerda).
+SELECT a.nome_agencia, ct.numero_conta, c.nome AS nome_cliente
+FROM agencias a
+LEFT JOIN contas ct ON a.id_agencia = ct.id_agencia
+LEFT JOIN clientes c ON ct.id_cliente = c.id_cliente
